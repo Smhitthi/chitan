@@ -20,7 +20,7 @@
 								<span class="input-group-addon">
                                     <i class="nc-icon nc-email-85"></i>
                                 </span>
-								<?= $this->Form->input('ユーザー名') ?>
+								<?= $this->Form->input('username') ?>
                             </div>
 
                             <div class="input-group form-group-no-border">
@@ -30,7 +30,7 @@
 								<?= $this->Form->input('password') ?>
                             </div>
 
-                            <?= $this->Form->button(__('ログイン')); ?>
+                            <?= $this->Form->button(__('login')); ?>
                         </form>
                         <div class="forgot">
                                 <a href="#" class="btn btn-link btn-info">パスワードをお忘れの方はこちら</a>
