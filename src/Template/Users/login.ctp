@@ -27,7 +27,7 @@
 								<span class="input-group-addon">
                                     <i class="nc-icon nc-key-25"></i>
                                 </span>
-								<?= $this->Form->input('パスワード') ?>
+								<?= $this->Form->input('password') ?>
                             </div>
 
                             <?= $this->Form->button(__('ログイン')); ?>
