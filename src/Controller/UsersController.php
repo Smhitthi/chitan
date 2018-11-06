@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Auth\DefaultPasswordHasher;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -10,6 +12,8 @@ use App\Controller\AppController;
  *
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
+
+
 class UsersController extends AppController
 {
 
@@ -48,6 +52,7 @@ class UsersController extends AppController
      */
     public function add()
     {
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -104,4 +109,80 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+//追記分
+    public function initialize(){
+        parent::initialize();
+        //各種のコンポーネントのロード
+        $this->loadComponent('RequestHandler');
+        $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'username',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ] ,
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'logout',
+            ],
+            'authError' => 'ログインしてください。',
+        ]);
+    }
+
+    //ログイン処理
+    function login(){
+        //POST時の処理
+        if($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            debug($user);
+            //Authのidentifyをユーザーに設定
+            // if(!empty($user)){
+            //     $this->Auth->setUser($user);
+            //     return $this->redirect($this->Auth->redirectUrl());
+            // }
+            // $this->Flash->error('ユーザー名かパスワードが間違っています。');
+            if($user) {
+                $this->Auth->setUser($user);
+                $this->redirect($this->Auth->redirectUrl());
+            } else {
+                $this->Flash->error('ログインエラーです');
+            }
+        }
+    }
+
+    //ログアウト処理
+    public function logout() {
+        //セッションを破棄
+        $this->request->session()->destroy();
+        return $this->redirect($this->Auth->logout());
+    }
+
+    //認証を使わないページの設定
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['login']);//後で'add'を削除する
+    }
+
+    //認証時のロールチェック
+    public function isAuthorized($user = null) {
+        //管理者はtrue
+        if($user['role'] === 'admin') {
+            return true;
+        }
+        if($user['role'] === 'user') {
+            return false;
+        }
+        //他はすべてfalse
+        return false;
+    }
+
 }
