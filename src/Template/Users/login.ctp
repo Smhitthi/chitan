@@ -17,17 +17,22 @@
                     <div class="card card-register bg-light">
                         <form class="register-form">
                             <div class="input-group form-group-no-border">
-								<span class="input-group-addon">
+								<label>ユーザー名</label>
+                                <span class="input-group-addon">
                                     <i class="nc-icon nc-email-85"></i>
                                 </span>
-								<?= $this->Form->input('username') ?>
+
+								<!--?= $this->Form->input('username') ?-->
+                                <input type="text" name="username">
                             </div>
 
                             <div class="input-group form-group-no-border">
-								<span class="input-group-addon">
+								<label>パスワード</label>
+                                <span class="input-group-addon">
                                     <i class="nc-icon nc-key-25"></i>
                                 </span>
-								<?= $this->Form->input('password') ?>
+								<!--?= $this->Form->input('password') ?-->
+                                <input text="text" name="password">
                             </div>
 
                             <?= $this->Form->button(__('login')); ?>
