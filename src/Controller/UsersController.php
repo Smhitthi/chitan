@@ -143,7 +143,6 @@ class UsersController extends AppController
         //POST時の処理
         if($this->request->is('post')) {
             $user = $this->Auth->identify();
-            debug($user);
             //Authのidentifyをユーザーに設定
             // if(!empty($user)){
             //     $this->Auth->setUser($user);
