@@ -1,3 +1,4 @@
+
 <?php
 namespace App\Controller;
 
@@ -105,7 +106,7 @@ class AuctionController extends AuctionBaseController {
 		$bidrequest = $this->Bidrequests->newEntity();
 		//bidrequestにbiditem_idとuser_idを設定
 		$bidrequest->biditem_id = $biditem_id;
-		$bidrequest->user_id = $user_id;
+		$bidrequest->user_id = $this->Auth->user('id');
 		//POST送信時の処理
 		if ($this->request->is('post')) {
 			//bidrequsetに送信フォームの内容を反映する
@@ -128,16 +129,16 @@ class AuctionController extends AuctionBaseController {
 	//落札者とメッセージ
 	public function msg($bidinfo_id = null) {
 		//Bidmessageを新たに用意
-		$bidmsg = $this->Bidmessage->newEntity();
+		$bidmsg = $this->Bidmessages->newEntity();
 		//POST送信時の処理
 		if ($this->request->is('post')) {
 			//送信されたフォームで$bidmsgを更新
-			$bidmsg = $this->Bidmessage->patchEntity($bidmsg, $this->request->getData());
+			$bidmsg = $this->Bidmessages->patchEntity($bidmsg, $this->request->getData());
 			//Bidmessageを保存
-			if ($this->Bidmessage->save($bidmsg)) {
+			if ($this->Bidmessages->save($bidmsg)) {
 				$this->Flash->success(__('保存しました。'));
 			} else {
-				$this->Flash->erorr(__('保存に失敗しました。もう一度入力してください。'));
+				$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
 			}
 		}
 		try { //$bidinfo_idからBidinfoを取得する
@@ -156,7 +157,7 @@ class AuctionController extends AuctionBaseController {
 	//落札情報の表示
 	public function home() {
 		//自分が落札したBidinfoをページネーションで取得
-		$bidingo = $this->paginate('Bidinfo', [
+		$bidinfo = $this->paginate('Bidinfo', [
 			'conditions' => ['Bidinfo.user_id' => $this->Auth->user('id')],
 			'contain' => ['Users', 'Biditems'],
 			'order' => ['created' => 'desc'],
@@ -165,9 +166,9 @@ class AuctionController extends AuctionBaseController {
 	}
 
 	//出品情報の表示
-	public function home2 {
+	public function home2() {
 		//自分が出品したBiditemをページネーションで取得
-		$Biditems = $this->paginate('Biditems', [
+		$biditems = $this->paginate('Biditems', [
 			'conditions' => ['Biditems.user_id' => $this->Auth->user('id')],
 			'contain' => ['Users', 'Bidinfo'],
 			'order' => ['created' => 'desc'],
