@@ -24,7 +24,7 @@
             echo $this->Form->control('username');
             echo $this->Form->control('email');
             echo $this->Form->control('password');
-            echo $this->Form->control('role');
+            echo $this->Form->select('role', ['user','admin']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

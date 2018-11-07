@@ -10,7 +10,7 @@ use App\Controller\AppController;
  *
  * @method \App\Model\Entity\Chat[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class ChatController extends AppController
+class ChatController extends AuctionBaseController
 {
 
     /**
