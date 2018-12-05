@@ -17,9 +17,9 @@
 </head>
 <body>
 	<nav class="top-bar titlebar" data-topbar role="navigation">
-		<ul class="title-area large-3 large-4 columns name">
+		<ul class="title-area large-3 medium-4 columns name">
 			<li>
-				<h1><?=$this->Html->link(__('Auction! [' .authuser['username']. ']'),['action' => 'index']) ?></h1>
+				<h1><?=$this->Html->link(__('Auction! [' .$authuser['username']. ']'),['action' => 'index']) ?></h1>
 			</li>
 		</ul>
 		<div class="top-bar-section">
@@ -33,7 +33,7 @@
 		<div class="actions index medium-9 columns content">
 			<?= $this->fetch('content') ?>
 		</div>
-		<nav class="large-2 medium-3 columns sudebar" id="actions-sidebar">
+		<nav class="large-2 medium-3 columns sidebar" id="actions-sidebar">
 			<ul class="side-nav">
 				<li class="heading"><?= __('Actions') ?></li>
 				<li><?= $this->Html->link(__('あなたの落札情報'), ['action' => 'home']) ?></li>
@@ -46,4 +46,4 @@
 	<footer>		
 	</footer>
 </body>
-</html>
+</html>s

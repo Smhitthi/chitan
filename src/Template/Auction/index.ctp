@@ -10,24 +10,24 @@
 	</tr>
 </thead>
 <tbody>
-	<?php foreach ($auction as $bidtime): ?>
+	<?php foreach ($auction as $biditem): ?>
 	<tr>
-		<td><?= h($bidtime->name) ?></td>
-		<td><?= h($bidtime->finished ? 'Finished':'') ?></td>
-		<td><?= h($bidtime->endtime) ?></td>
+		<td><?= h($biditem->name) ?></td>
+		<td><?= h($biditem->finished ? 'Finished':'') ?></td>
+		<td><?= h($biditem->endtime) ?></td>
 		<td class="actions">
-			<?= $this->Html->link->(__('View'), ['action' => 'view',$bidtime->id]) ?>
+			<?= $this->Html->link(__('View'), ['action' => 'view',$biditem->id]) ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
 </tbody>
 </table>
 <div class="paginator">
-	<ul>
-		<?= $this->Paginator->first('<<' . __('first')) ?>
-		<?= $this->Paginator->prev('<' . __('previous')) ?>
+	<ul class="pagination">
+		<?= $this->Paginator->first('<< ' . __('first')) ?>
+		<?= $this->Paginator->prev('< ' . __('previous')) ?>
 		<?= $this->Paginator->numbers() ?>
-		<?= $this->Paginator->next(__('next') . '>') ?>
-		<?= $this->Paginator->last(__('last') . '>>') ?>
+		<?= $this->Paginator->next(__('next') . ' >') ?>
+		<?= $this->Paginator->last(__('last') . ' >>') ?>
 	</ul>
 </div>
