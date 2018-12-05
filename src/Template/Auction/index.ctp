@@ -4,19 +4,19 @@
 <thead>
 	<tr>
 		<th class="main" scope="col"><?= $this->Paginator->sort('name') ?></th>
-		<th scope="col"><?= $this->Paginator->sort('finished') ?></th>
-		<th scope="col"><?= $this->Paginator->sort('endtime') ?></th>
+		<th scope="col"><?= $this->Paginator->sort('category') ?></th>
+		<th scope="col"><?= $this->Paginator->sort('release') ?></th>
 		<th scope="col" class="actions"><?= __('Actions') ?></th>
 	</tr>
 </thead>
 <tbody>
-	<?php foreach ($auction as $biditem): ?>
+	<?php foreach ($auction as $items): ?>
 	<tr>
-		<td><?= h($biditem->name) ?></td>
-		<td><?= h($biditem->finished ? 'Finished':'') ?></td>
-		<td><?= h($biditem->endtime) ?></td>
+		<td><?= h($item->name) ?></td>
+		<td><?= h($item->category) ?></td>
+		<td><?= h($item->release) ?></td>
 		<td class="actions">
-			<?= $this->Html->link(__('View'), ['action' => 'view',$biditem->id]) ?>
+			<?= $this->Html->link(__('View'), ['action' => 'view',$items->id]) ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
