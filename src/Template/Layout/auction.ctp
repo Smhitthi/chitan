@@ -28,7 +28,7 @@
 			</ul>
 		</div>
 	</nav>
-	<? =$this->Flash->render() ?>
+	<?= $this->Flash->render() ?>
 	<div class="container clearfix">
 		<div class="actions index medium-9 columns content">
 			<?= $this->fetch('content') ?>
