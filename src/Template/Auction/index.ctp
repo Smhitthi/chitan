@@ -1,5 +1,5 @@
-<h2>ミニオークション！</h2>
-<h3>※出品されている商品</h3>
+<h2>Copia</h2>
+<h3>※出品されているスキル</h3>
 <table cellpadding="0" cellspacing="0">
 <thead>
 	<tr>

@@ -76,27 +76,27 @@ class AuctionController extends AuctionBaseController {
 	// 	$this->set(compact('biditem', 'bidrequests'));
 	// }
 
-	// //出品をする処理
-	// public function add() {
-	// 	//Biditemインスタンスを用意
-	// 	$biditem = $this->Biditems->newEntity();
-	// 	//POST送信時の処理
-	// 	if ($this->request->is('post')) {
-	// 		//$biditemにフォームの送信内容の反映
-	// 		$biditem = $this->Biditems->patchEntity($biditem, $this->request->getData());
-	// 		//$biditemを保存する
-	// 		if ($this->Biditems->save($biditem)) {
-	// 			//成功時のメッセージ
-	// 			$this->Flash->success(__('保存しました。'));
-	// 			//トップページ(index)に移動
-	// 			return $this->redirect->(['action' => 'index']);
-	// 		}
-	// 		//失敗時のメッセージ
-	// 		$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
-	// 	}
-	// 	//値を保管
-	// 	$this->set(compact('biditem'));
-	// }
+	//出品をする処理
+	public function add() {
+		//Biditemインスタンスを用意
+		$items = $this->Items->newEntity();
+		//POST送信時の処理
+		if ($this->request->is('post')) {
+			//$biditemにフォームの送信内容の反映
+			$items = $this->Items->patchEntity($items, $this->request->getData());
+			//$biditemを保存する
+			if ($this->Items->save($items)) {
+				//成功時のメッセージ
+				$this->Flash->success(__('保存しました。'));
+				//トップページ(index)に移動
+				return $this->redirect(['action' => 'index']);
+			}
+			//失敗時のメッセージ
+			$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
+		}
+		//値を保管
+		$this->set(compact('items'));
+	}
 
 	// //入札の処理
 	// public function bid($biditem_id = null) {
