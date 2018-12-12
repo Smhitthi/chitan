@@ -43,18 +43,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     
 </head>
 <body>
-    <!--nav class="top-bar titlebar" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns name">
-            <li>
-                <h1><?=$this->Html->link(__('Auction! [' .$authuser['username']. ']'),['action' => 'index']) ?></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://plus.google.com/+TuyanoSYODA">about</a>></li>
-            </ul>
-        </div>
-    </nav-->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
  
         <!--ナビゲーションバーを水平方向に配置-->
@@ -80,7 +68,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <!--ナビバー内の検索フォーム-->
                     
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control ml-sm-5 mr-sm-2" type="text" placeholder="スキル名orジャンルを入力" aria-label="検索">
+                    <input class="form-control ml-sm-5 mr-sm-2 my-auto" type="text" placeholder="スキル名orジャンルを入力" aria-label="検索">
                     <button class="btn btn-success btn-round" type="submit">検索</button>
                 </form>
 
@@ -95,7 +83,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <a class="nav-link" href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i>&nbsp;NICE</a>
                     </li>
                     <li class="nav-item active">
-                        <a href="#" target="_blank" class="btn btn-warning btn-round">出品する</a>
+                        <?=$this->Html->link('出品する',['action'=>'add',],['class'=>'btn btn-warning btn-round']); ?>
+                    </li>
+                    <li class="nav-item">
+                        <?=$this->Html->link('ユーザー名: ' .$authuser['username'], ['action'=>'index',], ['class'=>'nav-link']); ?>
                     </li>
                 </ul>
 
@@ -109,7 +100,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <nav class="large-2 medium-3 columns sidebar" id="actions-sidebar">
             <ul class="side-nav">
-                <li class="heading"><?= __('Actions') ?></li>
+                <li class="heading"><?= __('メニュー') ?></li>
                 <li><?= $this->Html->link(__('あなたの落札情報'), ['action' => 'home']) ?></li>
                 <li><?= $this->Html->link(__('あなたの出品情報'), ['action' => 'home2']) ?></li>
                 <li><?= $this->Html->link(__('商品を出品する'), ['action' => 'add']) ?></li>
