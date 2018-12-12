@@ -17,7 +17,7 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('/bootstrap/css/nucleo-icons.css') ?>
     <?= $this->Html->css('/bootstrap/css/paper-kit.css') ?>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     
 
     <?= $this->fetch('meta') ?>
@@ -73,7 +74,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </form>
 
                 <ul class="navbar-nav ml-auto">      
-                    <li class="nav-item active">
+                    <li class="nav-item active">                        
                         <a class="nav-link" href="#"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;TOP</a>
                     </li>
                     <li class="nav-item">

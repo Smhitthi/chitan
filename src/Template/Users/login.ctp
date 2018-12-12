@@ -2,40 +2,35 @@
 <?= $this->Flash->render('auth') ?>
 <?= $this->Form->create() ?>
 	<fieldset>
-	<div class="section bg-info">
+        <?= $this->Form->input('username') ?>
+        <?= $this->Form->input('password') ?>
+        <?= $this->Form->button('login')?>
+	<div class="section bg-primary">
         <div class="container">
-            <div class="text-center">
-                <div class="text-light">
-                    <label>Copia</label>
-                </div>
-                <div class="text-light">
-                    <label>ログイン</label>
-                </div>
-            </div>
             <div class="row">
-                <div class="col-md-4 ml-auto mr-auto">
-                    <div class="card card-register bg-light">
+                    <div class="card card-register bg-light col-md-8 my-auto mx-auto">
                         <form class="register-form">
                             <div class="input-group form-group-no-border">
                                 <span class="input-group-addon">
                                     <i class="nc-icon nc-email-85"></i>
                                 </span>
-								<?= $this->Form->input('username') ?>
+                                <!--?= $this->Form->input('username') ?-->
+                                <?= $this->Form->input('username'),['class'=>'form-control-info']?>
                             </div>
 
                             <div class="input-group form-group-no-border">
                                 <span class="input-group-addon">
                                     <i class="nc-icon nc-key-25"></i>
                                 </span>
-								<?= $this->Form->input('password') ?>
+                                <!--?= $this->Form->input('password') ?-->
+                                <?= $this->Form->input('password'),['class'=>'form-control-info'] ?>
                             </div>
 
-                            <?= $this->Form->button(__('login')); ?>
+                            <?= $this->Form->button('login',['class'=>'btn btn-info btn-block btn-round'])?>
                         </form>
                         <div class="forgot">
                                 <a href="#" class="btn btn-link btn-info">パスワードをお忘れの方はこちら</a>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
