@@ -30,4 +30,6 @@
 		<?= $this->Paginator->next(__('next') . ' >') ?>
 		<?= $this->Paginator->last(__('last') . ' >>') ?>
 	</ul>
+
+	
 </div>
