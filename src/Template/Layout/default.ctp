@@ -117,7 +117,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </ul>
         </nav>
     </div>
-    <footer>        
+    <footer class="footer bg-primary text-white">
+        <div class="container text-center">
+            <div class="mx-auto my-auto">
+                <br />
+                <h1>Copia</h1>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="#">利用規約</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">ご利用ガイド</a></li>
+                        <li><a href="#">サイトマップ</a></li>
+                        <li><a href="#">お知らせ</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+                <p>©2018 Copia.All Rights Reserved</p>
+                <br />
+            </div>
+        </div>
     </footer>
 </body>
 </html>
