@@ -84,7 +84,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <a class="nav-link" href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i>&nbsp;NICE</a>
                     </li>
                     <li class="nav-item active">
-                        <?=$this->Html->link('出品する',['action'=>'add',],['class'=>'btn btn-warning btn-round']); ?>
+                        <?=$this->Html->link('出品する',['controller' => 'Auction','action'=>'add',],['class'=>'btn btn-warning btn-round']); ?>
                     </li>
                     <li class="nav-item">
                         <?=$this->Html->link('ユーザー名: ' .$authuser['username'], ['action'=>'index',], ['class'=>'nav-link']); ?>
