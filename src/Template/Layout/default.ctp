@@ -102,10 +102,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <nav class="large-2 medium-3 columns sidebar" id="actions-sidebar">
             <ul class="side-nav">
                 <li class="heading"><?= __('メニュー') ?></li>
-                <li><?= $this->Html->link(__('あなたの落札情報'), ['action' => 'home']) ?></li>
-                <li><?= $this->Html->link(__('あなたの出品情報'), ['action' => 'home2']) ?></li>
-                <li><?= $this->Html->link(__('商品を出品する'), ['action' => 'add']) ?></li>
-                <li><?= $this->Html->link(__('商品リストを見る'), ['action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('あなたの落札情報'), ['controller' => 'Auction','action' => 'home']) ?></li>
+                <li><?= $this->Html->link(__('あなたの出品情報'), ['controller' => 'Auction','action' => 'home2']) ?></li>
+                <li><?= $this->Html->link(__('商品を出品する'), ['controller' => 'Auction','action' => 'add']) ?></li>
+                <li><?= $this->Html->link(__('商品リストを見る'), ['controller' => 'Auction','action' => 'index']) ?></li>
             </ul>
         </nav>
     </div>
