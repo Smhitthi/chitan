@@ -1,6 +1,6 @@
 <h2>スキルを出品する</h2>
-<?= $this->Form->create($items) ?>
-<filedset>
+<?= $this->Form->create($item) ?>
+<fieldset>
 	<legend>※商品情報を入力</legend>
 	<?php
 		echo $this->Form->hidden('user_id', ['value' => $authuser['id']]);
@@ -11,6 +11,6 @@
 		echo $this->Form->control('description');
 	?>
 
-</filedset>
+</fieldset>
 <?= $this->Form->button(__('Submit')) ?>
 <?= $this->Form->end() ?>

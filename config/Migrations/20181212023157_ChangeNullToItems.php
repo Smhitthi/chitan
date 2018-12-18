@@ -12,7 +12,7 @@ class ChangeNullToItems extends AbstractMigration
      */
     public function up()
     {
-        $table = $this->table('items');
+        $table = $this->table('item');
          $table->changeColumn('release', 'string', [
             'null' => true,
         ]);
@@ -27,7 +27,7 @@ class ChangeNullToItems extends AbstractMigration
 
     public function down()
     {
-        $table = $this->table('items');
+        $table = $this->table('item');
          $table->changeColumn('release', 'string', [
             'null' => false,
         ]);
