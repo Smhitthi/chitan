@@ -79,13 +79,15 @@ class AuctionController extends AuctionBaseController {
 	//出品をする処理
 	public function add() {
 		//Biditemインスタンスを用意
-		$items = $this->Items->newEntity();
+		$item = $this->Items->newEntity();
+		$this->log('変数$itemの値は：'. $item . 'です。');
+
 		//POST送信時の処理
 		if ($this->request->is('post')) {
 			//$biditemにフォームの送信内容の反映
-			$items = $this->Items->patchEntity($items, $this->request->getData());
+			$item = $this->Items->patchEntity($item, $this->request->getData());
 			//$biditemを保存する
-			if ($this->Items->save($items)) {
+			if ($this->Items->save($item)) {
 				//成功時のメッセージ
 				$this->Flash->success(__('保存しました。'));
 				//トップページ(index)に移動
@@ -95,7 +97,7 @@ class AuctionController extends AuctionBaseController {
 			$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
 		}
 		//値を保管
-		$this->set(compact('items'));
+		$this->set(compact('item'));
 	}
 
 	// //入札の処理
