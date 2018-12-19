@@ -80,8 +80,6 @@ class AuctionController extends AuctionBaseController {
 	public function add() {
 		//Biditemインスタンスを用意
 		$item = $this->Items->newEntity();
-		$this->log('変数$itemの値は：'. $item . 'です。');
-
 		//POST送信時の処理
 		if ($this->request->is('post')) {
 			//$biditemにフォームの送信内容の反映

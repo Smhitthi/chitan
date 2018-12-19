@@ -38,9 +38,9 @@ class Item extends Entity
         'image' => true,
         'category' => true,
         'description' => true,
-        'release' => true,
-        'comment' => true,
-        'match_date' => true,
+        'release' => false,
+        'comment' => false,
+        'match_date' => false,
         'user' => true,
         'chat' => true,
         'finished_item' => true
