@@ -38,3 +38,4 @@ nbproject/*
 .vscode
 # Sass preprocessor
 .sass-cache/
+config/Migrations/20181212023157_ChangeNullToItems.php.rej
