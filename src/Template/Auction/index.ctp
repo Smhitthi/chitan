@@ -12,9 +12,9 @@
 <tbody>
 	<?php foreach ($auction as $items): ?>
 	<tr>
-		<td><?= h($item->name) ?></td>
-		<td><?= h($item->category) ?></td>
-		<td><?= h($item->release) ?></td>
+		<td><?= h($items->name) ?></td>
+		<td><?= h($items->category) ?></td>
+		<td><?= h($items->release) ?></td>
 		<td class="actions">
 			<?= $this->Html->link(__('View'), ['action' => 'view',$items->id]) ?>
 		</td>
