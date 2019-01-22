@@ -1,8 +1,8 @@
-<h2> 「<?= $items->name ?>」の情報</h2>
+<h2> 「<?=$items->name ?>」の情報</h2>
 <table class="vertical-table">
 <tr>
-	<th class="small" scope="row">出品者</th>
-	<td><?= $items->has('user') ? $items->user->username : '' ?></td>
+	<th scope="row">出品者</th>
+	<td><?= $items->user ? $items->user->username : '' ?></td>
 </tr>
 <tr>
 	<th scope="row">スキル名</th>
@@ -17,4 +17,3 @@
 	<td><?= h($items->image) ?></td>
 </tr>
 </table>
-

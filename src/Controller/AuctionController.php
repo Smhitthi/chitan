@@ -36,45 +36,21 @@ class AuctionController extends AuctionBaseController {
 
 //↓---------とりあえず写した部分------------↓
 
-	// //商品情報の表示
-	// public function view($id = null) {
-	// 	//$idのItemsを取得
-	// 	$items = $this->Items->get($id, [
-	// 		'contain' => ['Users', 'Bidinfo', 'Bidinfo.Users']
-	// 		]);
-	// 	//オークション終了時の処理
-	// 	if ($biditem->endtime < new \DateTime('now') and $biditem->finished == 0) {
-	// 		//finishedを１に変更して保存
-	// 		$biditem->finished = 1;
-	// 		$this->Biditems->save($biditem);
-	// 		//Bidinfoを作成する
-	// 		$bidinfo = $this->Bidinfo->newEntity();
-	// 		//Bidinfoのbiditem_idに$idを設定
-	// 		$bidinfo->biditem_id = $id;
-	// 		//最高金額のBidrequestを検索
-	// 		$bidrequest = $this->Bidrequests->find('all', [
-	// 			'conditions' => ['biditem_id' => $id],
-	// 			'contain' => ['Users'],
-	// 			'order' => ['price' => 'desc']])->first();
-	// 		//Bidrequestが得られたときの処理
-	// 		if (!empty(bidrequest)) {
-	// 			//Bidinfoの各種プロパティを設定して保存する
-	// 			$bidinfo->user_id = $bidrequest->user->id;
-	// 			$bidinfo->user = $bidrequest->user;
-	// 			$bidinfo->price = $bidrequest->price;
-	// 			$this->Bidinfo->save($bidinfo);
-	// 		}
-	// 		//Biditemのbidinfoに$bidinfoを設定
-	// 		$biditem->bidinfo = $bidinfo;
-	// 	}
-	// 	//Bidrequestからbiditem_idが$idのものを取得
-	// 	$bidrequest = $this->Bidrequests->find('all', [
-	// 		'conditions' => ['biditem_id' => $id],
-	// 		'contain' => ['Users'],
-	// 		'order' => ['price' => 'desc']])->toArray();
-	// 	//オブジェクト類をテンプレート用に設定
-	// 	$this->set(compact('biditem', 'bidrequests'));
-	// }
+	//商品情報の表示
+	public function view($id = null) {
+		//$idのItemsを取得
+		// $query = $this->Items->find('all')->contain(['Users']);
+
+		$query = $this->Items->get($id, [
+			'contain' => ['Users']
+			]);
+
+		$items = $this->Items->find('all');
+		$this->log($query);
+		$this->log($items);
+        $this->set('items', $query);
+		// $this->set('items',$this->Items->find('all'));
+	}
 
 	//出品をする処理
 	public function add() {
