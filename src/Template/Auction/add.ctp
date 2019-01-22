@@ -18,7 +18,7 @@
 			echo $this->Form->control('description', ['label' => '説明']);
 			echo $this->Form->control('release', ['label' => 'リリース日']);
 			echo $this->Form->control('comment', ['label' => 'コメント']);
-			echo $this->Form->control('match_date', [ 'type' => 'datetime','label' => '説明']);
+			echo $this->Form->control('match_date', [ 'type' => 'datetime','label' => '何日前か']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -39,17 +39,12 @@ class AuctionController extends AuctionBaseController {
 	//商品情報の表示
 	public function view($id = null) {
 		//$idのItemsを取得
-		// $query = $this->Items->find('all')->contain(['Users']);
-
 		$query = $this->Items->get($id, [
 			'contain' => ['Users']
 			]);
 
 		$items = $this->Items->find('all');
-		$this->log($query);
-		$this->log($items);
         $this->set('items', $query);
-		// $this->set('items',$this->Items->find('all'));
 	}
 
 	//出品をする処理
