@@ -48,6 +48,9 @@ class ItemsTable extends Table
         $this->hasMany('FinishedItem', [
             'foreignKey' => 'item_id'
         ]);
+        $this->hasMany('Messages', [
+            'foreignKey' => 'item_id'
+        ]);
     }
 
     /**

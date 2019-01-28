@@ -47,6 +47,9 @@ class UsersTable extends Table
         $this->hasMany('Items', [
             'foreignKey' => 'user_id'
         ]);
+        $this->hasMany('Messages', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**
