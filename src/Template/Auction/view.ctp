@@ -18,6 +18,8 @@
 	<td><?= h($items->image) ?></td>
 </tr>
 </table>
+
+<!-- facebook -->
 <div class="fb-like" data-href="http://copia.work/chitan/auction/view" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
 
 <h3>※コメント</h3>
@@ -50,6 +52,7 @@
 <?php endif; ?>
 </tbody>
 
+<!-- facebookいいねボタン(とりあえず) -->
 <body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
