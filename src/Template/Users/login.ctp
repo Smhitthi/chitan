@@ -2,9 +2,9 @@
 <?= $this->Flash->render('auth') ?>
 <?= $this->Form->create() ?>
 	<fieldset>
-        <?= $this->Form->input('username') ?>
+<!--         <?= $this->Form->input('username') ?>
         <?= $this->Form->input('password') ?>
-        <?= $this->Form->button('login')?>
+        <?= $this->Form->button('login')?> -->
 	<div class="section bg-primary">
         <div class="container">
             <div class="row">
@@ -15,7 +15,8 @@
                                     <i class="nc-icon nc-email-85"></i>
                                 </span>
                                 <!--?= $this->Form->input('username') ?-->
-                                <?= $this->Form->input('username'),['class'=>'form-control-info']?>
+                                <?= $this->Form->input('username')?>
+                                <!-- ,['class'=>'form-control-info']?> -->
                             </div>
 
                             <div class="input-group form-group-no-border">
@@ -23,7 +24,8 @@
                                     <i class="nc-icon nc-key-25"></i>
                                 </span>
                                 <!--?= $this->Form->input('password') ?-->
-                                <?= $this->Form->input('password'),['class'=>'form-control-info'] ?>
+                                <?= $this->Form->input('password')?>
+                                <!-- ['class'=>'form-control-info'] ?> -->
                             </div>
 
                             <?= $this->Form->button('login',['class'=>'btn btn-info btn-block btn-round'])?>
