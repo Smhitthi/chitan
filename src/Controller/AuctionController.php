@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 use Cake\Event\Event;
 use Exception;
@@ -19,6 +20,7 @@ class AuctionController extends AuctionBaseController {
 		$this->loadModel('Chat');
 		$this->loadModel('Items');
 		$this->loadModel('FinishedItem');
+		$this->loadModel('Messages');
 		//ログインしているユーザー情報をauthuserに設定
 		$this->set('authuser', $this->Auth->user());
 		//レイアウトをアクションに変更
@@ -43,8 +45,54 @@ class AuctionController extends AuctionBaseController {
 			'contain' => ['Users']
 			]);
 
-		$items = $this->Items->find('all');
         $this->set('items', $query);
+
+		//messagesを新たに用意
+		$messages = $this->getTableLocator()->get('Messages');
+		$msg = $messages->newEntity();
+
+		//POST送信時の処理
+		if ($this->request->is('post')) {
+			//送信されたフォームで$msgを更新
+			$msg = $this->Messages->patchEntity($msg, $this->request->getData());
+			//messagesを保存
+			if ($this->Messages->save($msg)) {
+				$this->Flash->success(__('保存しました。'));
+			} else {
+				$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
+			}
+		}
+
+		$msg = $this->Messages->find('all',[
+			'conditions'=>['item_id'=>'item_id'],
+			'contain'=>['Users'],
+			'order'=>['created'=>'desc']]);
+
+		$this->set('msg', $msg);
+	}
+
+	public function msg(){
+		// //messagesを新たに用意
+		// $messages = TableRegistry::get('Messages');
+		// $msg = $messages->newEntity($this->request->getData());
+		// //POST送信時の処理
+		// if ($this->request->is('post')) {
+		// 	//送信されたフォームで$msgを更新
+		// 	$msg = $this->Messages->patchEntity($msg, $this->request->getData());
+		// 	//messagesを保存
+		// 	if ($this->Messages->save($msg)) {
+		// 		$this->Flash->success(__('保存しました。'));
+		// 	} else {
+		// 		$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
+		// 	}
+		// }
+
+		// $msg = $this->Messages->find('all',[
+		// 	'conditions'=>['item_id'=>'item_id'],
+		// 	'contain'=>['Users'],
+		// 	'order'=>['created'=>'desc']]);
+
+		// $this->set('msg', $msg);
 	}
 
 	//出品をする処理
@@ -93,34 +141,6 @@ class AuctionController extends AuctionBaseController {
 	// 	//$biditem_idの$biditemを取得する
 	// 	$biditem = $this->Biditems->get($biditem_id);
 	// 	$this->set(compact('bidrequest', 'biditem'));
-	// }
-
-	// //落札者とメッセージ
-	// public function msg($bidinfo_id = null) {
-	// 	//Bidmessageを新たに用意
-	// 	$bidmsg = $this->Bidmessages->newEntity();
-	// 	//POST送信時の処理
-	// 	if ($this->request->is('post')) {
-	// 		//送信されたフォームで$bidmsgを更新
-	// 		$bidmsg = $this->Bidmessages->patchEntity($bidmsg, $this->request->getData());
-	// 		//Bidmessageを保存
-	// 		if ($this->Bidmessages->save($bidmsg)) {
-	// 			$this->Flash->success(__('保存しました。'));
-	// 		} else {
-	// 			$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
-	// 		}
-	// 	}
-	// 	try { //$bidinfo_idからBidinfoを取得する
-	// 		$bidinfo = $this->$Bidinfo->get($bidinfo_id, ['contain' => ['Biditems']]);
-	// 	} catch(Exception $e) {
-	// 		$bidinfo = null;
-	// 	}
-	// 	//Bidmessageをbidinfo_idとuser_idで検索
-	// 	$bidmsgs = $this->Bidmessages->find('all' ,[
-	// 		'conditions' => ['biditem_id' => bidinfo_id],
-	// 		'contain' => ['Users'],
-	// 		'order' => ['created' => 'desc']]);
-	// 	$this->set(compact('bidmsgs', 'bidinfo', 'bidmsg'));
 	// }
 
 	// //落札情報の表示
