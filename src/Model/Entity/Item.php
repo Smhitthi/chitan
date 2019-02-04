@@ -40,7 +40,7 @@ class Item extends Entity
         'description' => true,
         'release' => false,
         'comment' => false,
-        'match_date' => false,
+        'match_date' => true,
         'user' => true,
         'chat' => true,
         'finished_item' => true

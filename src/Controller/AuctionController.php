@@ -7,6 +7,7 @@ use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 use Exception;
 use Cake\I18n\Time;
+use DateTime;
 
 class AuctionController extends AuctionBaseController {
 	//デフォルトテーブルを使わない
@@ -117,10 +118,8 @@ class AuctionController extends AuctionBaseController {
 		//値を保管
 		$this->set(compact('item'));
 
-		$time = Time::now();
-		$this->log('変数$nameの値は：'. $time . 'です。');
+		$time = new DateTime();
 		$this->set(compact('time'));
-
 	}
 
 	// //入札の処理
