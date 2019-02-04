@@ -73,16 +73,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <button class="btn btn-success btn-round" type="submit">検索</button>
                 </form>
 
-                <ul class="navbar-nav ml-auto">      
-                    <li class="nav-item active">                        
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <?=$this->Html->link('TOP',['controller' => 'Auction','action'=>'home',],['class'=>'btn btn-warning btn-round']); ?>
+                    </li>      
+                    <!--li class="nav-item active">                        
                         <a class="nav-link" href="#"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;TOP</a>
-                    </li>
+                    </li-->
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="far fa-comments" aria-hidden="true"></i>&nbsp;チャット</a>
                     </li>
-                    <li class="nav-item">
+                    <!--li class="nav-item">
                         <a class="nav-link" href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i>&nbsp;NICE</a>
-                    </li>
+                    </li-->
                     <li class="nav-item active">
                         <?=$this->Html->link('出品する',['controller' => 'Auction','action'=>'add',],['class'=>'btn btn-warning btn-round']); ?>
                     </li>
