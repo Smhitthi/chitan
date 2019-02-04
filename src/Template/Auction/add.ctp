@@ -16,9 +16,11 @@
 			echo $this->Form->control('image', ['label' => '画像']);
 			echo $this->Form->control('category', ['label' => 'カテゴリー']);
 			echo $this->Form->control('description', ['label' => '説明']);
-			echo $this->Form->control('release', ['label' => 'リリース日']);
-			echo $this->Form->control('comment', ['label' => 'コメント']);
-			echo $this->Form->control('match_date', [ 'type' => 'datetime','label' => '何日前か']);
+			// echo $this->Form->control('release', ['label' => 'リリース日']);
+            echo $this->Form->hidden( 'release' ,['value' => 2019 ]);
+			echo $this->Form->hidden('comment', ['value' => 'コメント']);
+            echo $time;
+			echo $this->Form->hidden('match_date', ['type' => 'date', 'value' => $time['time']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
