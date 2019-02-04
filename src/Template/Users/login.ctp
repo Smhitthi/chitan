@@ -15,7 +15,7 @@
                                     <i class="nc-icon nc-email-85"></i>
                                 </span>
                                 <!--?= $this->Form->input('username') ?-->
-                                <?= $this->Form->input('username')?>
+                                <?= $this->Form->input('username',array('style' => 'width:220px'))?>
                                 <!-- ,['class'=>'form-control-info']?> -->
                             </div>
 
@@ -24,7 +24,7 @@
                                     <i class="nc-icon nc-key-25"></i>
                                 </span>
                                 <!--?= $this->Form->input('password') ?-->
-                                <?= $this->Form->input('password')?>
+                                <?= $this->Form->input('password',array('style' => 'width:220px'))?>
                                 <!-- ['class'=>'form-control-info'] ?> -->
                             </div>
 
