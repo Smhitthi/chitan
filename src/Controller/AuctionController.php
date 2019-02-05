@@ -6,8 +6,9 @@ use Cake\ORM\TableRegistry;
 
 use Cake\Event\Event;
 use Exception;
-use Cake\I18n\Time;
-use DateTime;
+use Cake\I18n\Time; //時間の取得
+use DateTime; //時間の取得
+use Cake\Datasource\ConnectionManager; //SQL直叩き
 
 class AuctionController extends AuctionBaseController {
 	//デフォルトテーブルを使わない
@@ -38,8 +39,6 @@ class AuctionController extends AuctionBaseController {
 		$this->set(compact('auction'));
 	}
 
-//↓---------とりあえず写した部分------------↓
-
 	//商品情報の表示
 	public function view($id = null) {
 		//$idのItemsを取得
@@ -57,6 +56,7 @@ class AuctionController extends AuctionBaseController {
 		if ($this->request->is('post')) {
 			//送信されたフォームで$msgを更新
 			$msg = $this->Messages->patchEntity($msg, $this->request->getData());
+			$this->log($msg);
 			//messagesを保存
 			if ($this->Messages->save($msg)) {
 				$this->Flash->success(__('保存しました。'));
@@ -65,36 +65,18 @@ class AuctionController extends AuctionBaseController {
 			}
 		}
 
+		//Item.id=Messages.item.idを取得
 		$msg = $this->Messages->find('all',[
-			'conditions'=>['item_id'=>'item_id'],
-			'contain'=>['Users'],
+			'conditions'=>['Items.id'=>$id],
+			'contain'=>['Items','Users'],
 			'order'=>['created'=>'desc']]);
+		$this->log($msg);
+
+		//SQL直叩き
+		// $connection = ConnectionManager::get('default');
+		// $result = $connection->execute('SELECT username FROM Users, Messages WHERE Users.id = Messages.user_id')->fetchAll('assoc');
 
 		$this->set('msg', $msg);
-	}
-
-	public function msg(){
-		// //messagesを新たに用意
-		// $messages = TableRegistry::get('Messages');
-		// $msg = $messages->newEntity($this->request->getData());
-		// //POST送信時の処理
-		// if ($this->request->is('post')) {
-		// 	//送信されたフォームで$msgを更新
-		// 	$msg = $this->Messages->patchEntity($msg, $this->request->getData());
-		// 	//messagesを保存
-		// 	if ($this->Messages->save($msg)) {
-		// 		$this->Flash->success(__('保存しました。'));
-		// 	} else {
-		// 		$this->Flash->error(__('保存に失敗しました。もう一度入力してください。'));
-		// 	}
-		// }
-
-		// $msg = $this->Messages->find('all',[
-		// 	'conditions'=>['item_id'=>'item_id'],
-		// 	'contain'=>['Users'],
-		// 	'order'=>['created'=>'desc']]);
-
-		// $this->set('msg', $msg);
 	}
 
 	//出品をする処理
