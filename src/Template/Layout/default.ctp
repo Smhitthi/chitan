@@ -81,11 +81,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <a class="nav-link" href="#"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;TOP</a>
                     </li-->
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="far fa-comments" aria-hidden="true"></i>&nbsp;チャット</a>
+                        <?=$this->Html->link('チャット',['controller' => 'Auction','action'=>'chat',],['class'=>'btn btn-warning btn-round']); ?>
                     </li>
-                    <!--li class="nav-item">
-                        <a class="nav-link" href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i>&nbsp;NICE</a>
-                    </li-->
+                    <li class="nav-item">
+                        <?=$this->Html->link('マイページ',['controller' => 'Auction','action'=>'mypage',],['class'=>'btn btn-warning btn-round']); ?>
+                    </li>
                     <li class="nav-item active">
                         <?=$this->Html->link('出品する',['controller' => 'Auction','action'=>'add',],['class'=>'btn btn-warning btn-round']); ?>
                     </li>
