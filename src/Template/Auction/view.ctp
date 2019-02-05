@@ -22,9 +22,9 @@
 </table>
 
 <!-- facebook -->
-<div class="fb-like" data-href="http://copia.work/chitan/auction/view" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+<div class="fb-like pull-right" data-href="http://copia.work/chitan/auction/view" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
 
-
+<form>
 <h3>コメント</h3>
 <h6>メッセージを送信する</h6>
 
@@ -33,10 +33,10 @@
 	<?= $this->Form->hidden('user_id', ['value' => $authuser['id']]); ?>
 	<?= $this->Form->texterea('message', ['rows'=>2], ['class' => 'commentButton']); ?>
 	<br />
-	<?= $this->Form->button('Submit'); ?>
+	<?= $this->Form->button('Submit',['class' => 'btn btn-info pull-right btn-round'],['value'=>'送信']); ?>
 	<?= $this->Form->end(); ?>
-	<br />
-
+</form>
+<br />
 
 <table cellpadding="0" cellspacing="0">
 	<thead>	

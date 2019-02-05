@@ -2,14 +2,12 @@
 <?= $this->Flash->render('auth') ?>
 <?= $this->Form->create() ?>
 	<fieldset>
-<!--         <?= $this->Form->input('username') ?>
-        <?= $this->Form->input('password') ?>
-        <?= $this->Form->button('login')?> -->
 	<div class="section bg-primary">
         <div class="container">
             <div class="row">
                     <div class="card card-register bg-light col-md-8 my-auto mx-auto">
                         <form class="register-form">
+                            <h3 class="text-dark text-center">Copia - Login</h3>
                             <div class="input-group form-group-no-border">
                                 <span class="input-group-addon">
                                     <i class="nc-icon nc-email-85"></i>
