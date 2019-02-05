@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../../webroot/css/auction.css">
 
-<h2> 「<?=$items->name ?>」の情報</h2>
+<h2 class="text-center"> 「<?=$items->name ?>」の情報</h2>
 
 <table class="vertical-table">
 	<tr>
@@ -24,14 +24,20 @@
 <!-- facebook -->
 <div class="fb-like" data-href="http://copia.work/chitan/auction/view" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
 
-<h3>※コメント</h3>
-<h6>※メッセージを送信する</h6>
+
+<h3>コメント</h3>
+<h6>メッセージを送信する</h6>
+
 	<?= $this->Form->create($msg) ?>
 	<?= $this->Form->hidden('item_id', ['value' => $items->id]); ?>
 	<?= $this->Form->hidden('user_id', ['value' => $authuser['id']]); ?>
 	<?= $this->Form->texterea('message', ['rows'=>2], ['class' => 'commentButton']); ?>
-	<?= $this->Form->button('Submit', ['class' => 'commentButton']); ?>
+	<br />
+	<?= $this->Form->button('Submit'); ?>
 	<?= $this->Form->end(); ?>
+	<br />
+
+
 <table cellpadding="0" cellspacing="0">
 	<thead>	
 		<tr>

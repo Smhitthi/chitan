@@ -105,18 +105,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
-        <div class="actions index medium-9 columns content">
+        <div class="actions index medium-12 columns content">
             <?= $this->fetch('content') ?>
         </div>
-        <nav class="large-2 medium-3 columns sidebar" id="actions-sidebar">
-            <!-- <ul class="side-nav">
-                <li class="heading"><?= __('メニュー') ?></li>
-                <li><?= $this->Html->link(__('あなたの落札情報'), ['controller' => 'Auction','action' => 'home']) ?></li>
-                <li><?= $this->Html->link(__('あなたの出品情報'), ['controller' => 'Auction','action' => 'home2']) ?></li>
-                <li><?= $this->Html->link(__('商品を出品する'), ['controller' => 'Auction','action' => 'add']) ?></li>
-                <li><?= $this->Html->link(__('商品リストを見る'), ['controller' => 'Auction','action' => 'index']) ?></li>
-            </ul> -->
-        </nav>
+        
     </div>
     <footer class="footer bg-primary text-white">
         <div class="container text-center">
