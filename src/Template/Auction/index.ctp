@@ -1,4 +1,3 @@
-<h2>Copia</h2>
 <h3>※出品されているスキル</h3>
 <table cellpadding="0" cellspacing="0">
 <thead>

@@ -75,7 +75,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <?=$this->Html->link('TOP',['controller' => 'Auction','action'=>'home',],['class'=>'btn btn-warning btn-round']); ?>
+                        <?=$this->Html->link('TOP',['controller' => 'Auction','action'=>'index',],['class'=>'btn btn-warning btn-round']); ?>
                     </li>      
                     <!--li class="nav-item active">                        
                         <a class="nav-link" href="#"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;TOP</a>
