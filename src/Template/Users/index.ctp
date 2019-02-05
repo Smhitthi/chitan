@@ -4,18 +4,6 @@
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Chat'), ['controller' => 'Chat', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Chat'), ['controller' => 'Chat', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Finished Item'), ['controller' => 'FinishedItem', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Finished Item'), ['controller' => 'FinishedItem', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Items'), ['controller' => 'Items', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Item'), ['controller' => 'Items', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('Users') ?></h3>
     <table cellpadding="0" cellspacing="0">

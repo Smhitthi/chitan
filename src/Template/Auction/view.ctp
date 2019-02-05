@@ -33,7 +33,7 @@
 	<?= $this->Form->hidden('user_id', ['value' => $authuser['id']]); ?>
 	<?= $this->Form->texterea('message', ['rows'=>2], ['class' => 'commentButton']); ?>
 	<br />
-	<?= $this->Form->button('Submit',['class' => 'btn btn-info pull-right btn-round'],['value'=>'送信']); ?>
+	<?= $this->Form->button('Submit',['class' => 'btn btn-info pull-right btn-round']); ?>
 	<?= $this->Form->end(); ?>
 </form>
 <br />

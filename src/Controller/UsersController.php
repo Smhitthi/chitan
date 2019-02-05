@@ -134,7 +134,7 @@ class UsersController extends AppController
                 'controller' => 'Users',
                 'action' => 'logout',
             ],
-            'authError' => 'ログインしてください。',
+            'authError' => 'ログインしてください',
         ]);
     }
 
@@ -153,7 +153,9 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 $this->redirect($this->Auth->redirectUrl());
             } else {
-                $this->Flash->error('ログインエラーです');
+                $alertLoginError = "<script type='text/javascript'>alert('ログインエラーです');</script>";
+                echo $alertLoginError;
+                
             }
         }
     }
