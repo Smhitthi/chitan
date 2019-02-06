@@ -53,7 +53,7 @@
 <!-- facebook -->
 <div class="fb-like pull-right" data-href="http://copia.work/chitan/auction/view" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
 
-<form>
+
 <h3>コメント</h3>
 <h6>メッセージを送信する</h6>
 
@@ -64,8 +64,9 @@
 	<br />
 	<?= $this->Form->button('Submit',['class' => 'btn btn-info pull-right btn-round']); ?>
 	<?= $this->Form->end(); ?>
-</form>
+
 <br />
+
 
 <table cellpadding="0" cellspacing="0">
 	<thead>	
