@@ -13,11 +13,13 @@
             echo $this->Form->hidden('user_id', ['value' => $authuser['id']]);
 			echo '<p><strong>Username: ' .$authuser['username']. '</strong></p>';
 			echo $this->Form->control('name', ['label' => 'スキル名']);
-			echo $this->Form->control('image', ['label' => '画像']);
-			echo $this->Form->control('category', ['label' => 'カテゴリー']);
+			echo $this->Form->select("category",
+                                 [ "教養", "ブログ", "デザイン", "プログラミング", "イラスト", "文章", "音楽", "その他" ],
+                                 [ "empty" => "カテゴリー" ]);
 			echo $this->Form->control('description', ['label' => 'スキルの説明']);
-            echo $this->Form->hidden( 'release', ['value' => 2019 ]);
-			echo $this->Form->hidden('comment', ['value' => 'コメント']);
+            echo $this->Form->control('comment', ['label' => '求めるスキル']);
+            echo $this->Form->file("image" , ['label' => '画像']);
+			echo $this->Form->hidden('release', ['value' => '1111']);
 			echo $this->Form->hidden('match_date', ['type' => 'date', 'value' => $time->format('Y-m-d H:i:s')]);
 
         ?>

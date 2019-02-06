@@ -1,0 +1,9 @@
+diff a/src/Controller/AuctionController.php b/src/Controller/AuctionController.php	(rejected hunks)
+@@ -56,7 +56,6 @@
+ 		if ($this->request->is('post')) {
+ 			//送信されたフォームで$msgを更新
+ 			$msg = $this->Messages->patchEntity($msg, $this->request->getData());
+-			$this->log($msg);
+ 			//messagesを保存
+ 			if ($this->Messages->save($msg)) {
+ 				$this->Flash->success(__('保存しました。'));
