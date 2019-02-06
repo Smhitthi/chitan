@@ -19,15 +19,26 @@
 		</td>
 	</tr>
 	<?php endforeach; ?>
+	
 </tbody>
 </table>
 
-<div class="paginator">
+<!--div class="paginator">
 	<ul class="pagination">
-		<?= $this->Paginator->first('<< ' . __('最初')) ?>
-		<?= $this->Paginator->prev('< ' . __('戻る')) ?>
-		<?= $this->Paginator->numbers() ?>
-		<?= $this->Paginator->next(__('次へ') . ' >') ?>
-		<?= $this->Paginator->last(__('最後') . ' >>') ?>
+		< ?= $this->Paginator->first('|<< ' . __('最初')) ?>
+		< ?= $this->Paginator->prev('< ' . __('戻る')) ?>
+		< ?= $this->Paginator->numbers() ?>
+		< ?= $this->Paginator->next(__('次へ') . ' >') ?>
+		< ?= $this->Paginator->last(__('最後') . ' >>|') ?>
 	</ul>
-</div>
+</div-->
+
+<nav class="text-center">
+  <ul class="pagination">
+  	<li class="page-item"><?= $this->Paginator->first('|<< ' . __('最初')) ?></li>
+	<li class="page-item"><?= $this->Paginator->prev('< ' . __('戻る')) ?></li>
+	<li class="page-item"><?= $this->Paginator->numbers() ?></li>
+	<li class="page-item"><?= $this->Paginator->next(__('次へ') . ' >') ?></li>
+	<li class="page-item"><?= $this->Paginator->last(__('最後') . ' >>|') ?></li>
+  </ul>
+</nav>
