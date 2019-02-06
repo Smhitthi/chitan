@@ -1,4 +1,4 @@
-<h3>※出品されているスキル</h3>
+<h3 class="text-center">出品スキル一覧</h3>
 <table cellpadding="0" cellspacing="0">
 <thead>
 	<tr>
@@ -15,20 +15,19 @@
 		<td><?= h($items->name) ?></td>
 		<td><?= h($items->category) ?></td>
 		<td class="actions">
-			<?= $this->Html->link(__('View'), ['action' => 'view',$items->id]) ?>
+			<?= $this->Html->link(__('詳細ページへ'), ['action' => 'view',$items->id]) ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
 </tbody>
 </table>
+
 <div class="paginator">
 	<ul class="pagination">
-		<?= $this->Paginator->first('<< ' . __('first')) ?>
-		<?= $this->Paginator->prev('< ' . __('previous')) ?>
+		<?= $this->Paginator->first('<< ' . __('最初')) ?>
+		<?= $this->Paginator->prev('< ' . __('戻る')) ?>
 		<?= $this->Paginator->numbers() ?>
-		<?= $this->Paginator->next(__('next') . ' >') ?>
-		<?= $this->Paginator->last(__('last') . ' >>') ?>
+		<?= $this->Paginator->next(__('次へ') . ' >') ?>
+		<?= $this->Paginator->last(__('最後') . ' >>') ?>
 	</ul>
-
-	
 </div>

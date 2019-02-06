@@ -1,25 +1,48 @@
 <link rel="stylesheet" type="text/css" href="../../webroot/css/auction.css">
 
-<h2 class="text-center"> 「<?=$items->name ?>」の情報</h2>
+<h2 class="text-center" style=""><?= h($items->name) ?></h2>
+<hr style="position: relative;
+	height: 3px;
+	border-width: 0;
+	background-image: -webkit-linear-gradient(left,
+	transparent 0%,#5bc0de 50%,transparent 100%);
+	background-image:         linear-gradient(90deg,
+	transparent 0%,#5bc0de 50%,transparent 100%);">
 
-<table class="vertical-table">
+<table class="col-12 mx-auto">
 	<tr>
-		<th scope="row">出品者</th>
+		<td rowspan="3" style="width: 400px;"><?= h($items->image) ?></td>
+		<th class="text-center" style="width: 150px;">出品者</th>
 		<td><?= $items->user ? $items->user->username : '' ?></td>
 	</tr>
 	<tr>
+		<th rowspan="2" class="text-center">スキルの説明</th>
+	</tr>
+	<tr>
+		<td><?= h($items->description) ?></td>
+	</tr>
+</table>
+
+
+
+<!--table class="vertical-table">
+	<tr>
+		<th scope="row">出品者</th>
+		<td>< ?= $items->user ? $items->user->username : '' ?></td>
+	</tr>
+	<tr>
 		<th scope="row">スキル名</th>
-		<td><?= h($items->name) ?></td>
+		<td>< ?= h($items->name) ?></td>
 	</tr>
 	<tr>
 		<th scope="row">スキルの説明</th>
-		<td><?= h($items->description) ?></td>
+		<td>< ?= h($items->description) ?></td>
 	</tr>
 	<tr>
 		<th scope="row">画像</th>
-		<td><?= h($items->image) ?></td>
+		<td>< ?= h($items->image) ?></td>
 	</tr>
-</table>
+</table-->
 
 <!-- facebook -->
 <div class="fb-like pull-right" data-href="http://copia.work/chitan/auction/view" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
