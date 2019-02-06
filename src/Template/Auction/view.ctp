@@ -11,15 +11,21 @@
 
 <table class="col-12 mx-auto">
 	<tr>
-		<td rowspan="3" style="width: 400px;"><?= h($items->image) ?></td>
+		<td rowspan="4" style="width: 400px;"><?= h($items->image) ?></td>
 		<th class="text-center" style="width: 150px;">出品者</th>
 		<td><?= $items->user ? $items->user->username : '' ?></td>
 	</tr>
 	<tr>
-		<th rowspan="2" class="text-center">スキルの説明</th>
+		<th class="text-center">カテゴリ</th>
+		<td><?= h($items->category) ?></td>
 	</tr>
 	<tr>
+		<th class="text-center">スキルの説明</th>
 		<td><?= h($items->description) ?></td>
+	</tr>
+	<tr>
+		<th class="text-center">求めるスキル</th>
+		<td><?= h($items->comment) ?></td>
 	</tr>
 </table>
 
