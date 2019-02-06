@@ -134,7 +134,6 @@ class UsersController extends AppController
                 'controller' => 'Users',
                 'action' => 'logout',
             ],
-            'authError' => 'ログインしてください',
         ]);
     }
 

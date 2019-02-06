@@ -103,13 +103,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </nav>
+
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <div class="actions index medium-12 columns content">
             <?= $this->fetch('content') ?>
-        </div>
-        
+        </div>   
     </div>
+    
     <footer class="footer bg-primary text-white">
         <div class="container text-center">
             <div class="mx-auto my-auto">
